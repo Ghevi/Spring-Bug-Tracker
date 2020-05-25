@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`ticket` (
   `ticket_description` VARCHAR(500) DEFAULT NULL,
   `assigned_developer` VARCHAR(255) DEFAULT NULL,
   `submitter` VARCHAR(255) DEFAULT NULL,
-  `project` VARCHAR(255) DEFAULT NULL,
+  `project_id` BIGINT(20) NOT NULL,
   `ticket_priority` VARCHAR(255) DEFAULT NULL,
   `ticket_status` VARCHAR(255) DEFAULT NULL,
   `ticket_type` VARCHAR(255) DEFAULT NULL,
@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`ticket_comment` (
   `commenter` VARCHAR(255) DEFAULT NULL,
   `message` VARCHAR(500) DEFAULT NULL,
   `created` TIMESTAMP DEFAULT NULL,
+  `ticket_id` BIGINT(20) NOT NULL,
   
 PRIMARY KEY (`id`)
 ) 
@@ -72,8 +73,17 @@ AUTO_INCREMENT = 1;
 -- Add sample data
 -- -----------------------------------------------------
 
+INSERT INTO PROJECT (PROJECT_NAME, DESCRIPTION, STAGE)
+VALUES ('GameApp', 'A simple game', 'Completed');
+
 INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE_ID, PROJECT_ID)
 VALUES ('Marco', 'marco@gmail.com', '1', '1');
 
-INSERT INTO PROJECT (PROJECT_NAME, DESCRIPTION, STAGE)
-VALUES ('GameApp', 'A simple game', 'Completed');
+INSERT INTO TICKET (TICKET_TITLE, PROJECT_ID)
+VALUES ('Ticket title', '1');
+
+INSERT INTO TICKET_COMMENT (COMMENTER, MESSAGE, CREATED, TICKET_ID)
+VALUES ('BossyBoss', 'A very important comment', now(), '1');
+
+
+

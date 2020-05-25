@@ -29,5 +29,6 @@ public class Project {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
     private Set<Employee> employees;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
     private Set<Ticket> tickets;
 }

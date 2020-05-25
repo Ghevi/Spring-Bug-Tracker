@@ -18,6 +18,10 @@ public class Ticket {
     @Column(name = "id")
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
+
     @Column(name = "ticket_title")
     private String ticketTitle;
 
@@ -25,13 +29,10 @@ public class Ticket {
     private String ticketDescription;
 
     @Column(name = "assigned_developer")
-    private Employee assignedDeveloper;
+    private String assignedDeveloper;
 
     @Column(name = "submitter")
     private String submitter;
-
-    @Column(name = "project")
-    private Project project;
 
     @Column(name = "ticket_priority")
     private String ticketPriority;
@@ -46,10 +47,11 @@ public class Ticket {
     @CreationTimestamp
     private Timestamp created;
 
-    @Column(name = "update")
+    @Column(name = "updated")
     @UpdateTimestamp
     private Timestamp updated;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ticket")
     private Set<TicketComment> ticketComments;
 
 }

@@ -16,13 +16,17 @@ public class TicketComment {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "id")
+    @ManyToOne
+    @JoinColumn(name = "ticket_id", nullable = false)
+    private Ticket ticket;
+
+    @Column(name = "commenter")
     private String commenter;
 
-    @Column(name = "id")
+    @Column(name = "message")
     private String message;
 
-    @Column(name = "id")
+    @Column(name = "created")
     @CreationTimestamp
     private Timestamp created;
 }
