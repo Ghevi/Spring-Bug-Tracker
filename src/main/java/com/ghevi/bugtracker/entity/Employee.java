@@ -3,6 +3,7 @@ package com.ghevi.bugtracker.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="employee")
@@ -14,10 +15,6 @@ public class Employee {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "project_id", nullable = false)
-    private Project project;
-
     @Column(name = "user_name")
     private String userName;
 
@@ -26,5 +23,14 @@ public class Employee {
 
     @Column(name = "role_id")
     private int roleId;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+                cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(
+            name="project_employee",
+            joinColumns=@JoinColumn(name="employee_id"),
+            inverseJoinColumns=@JoinColumn(name="project_id")
+    )
+    private Set<Project> projects;
 
 }
