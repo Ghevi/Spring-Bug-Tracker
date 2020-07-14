@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`employee` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
-  `role_id` int(10) NOT NULL,
+  `role` VARCHAR(100) NOT NULL,
   `project_id` BIGINT(20) NOT NULL,
   
   PRIMARY KEY (`id`)
@@ -86,22 +86,28 @@ AUTO_INCREMENT = 1;
 -- -----------------------------------------------------
 
 INSERT INTO PROJECT (PROJECT_NAME, DESCRIPTION, STAGE)
-VALUES ('GameApp', 'A simple game', 'Completed');
+VALUES ('Game App', 'A simple game', 'Completed');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE_ID, PROJECT_ID)
-VALUES ('Marco12', 'marco12@gmail.com', '1', '1');
+INSERT INTO PROJECT (PROJECT_NAME, DESCRIPTION, STAGE)
+VALUES ('Web Browser', 'A complicated browser', 'In progress');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE_ID, PROJECT_ID)
-VALUES ('Andrea56', 'andrea56@gmail.com', '1', '1');
+INSERT INTO PROJECT (PROJECT_NAME, DESCRIPTION, STAGE)
+VALUES ('Music Player', 'A intermediate musica player', 'Not started');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE_ID, PROJECT_ID)
-VALUES ('Opmo34', 'opmo34@gmail.com', '1', '1');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
+VALUES ('Marco12', 'marco12@gmail.com', 'User', '1');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE_ID, PROJECT_ID)
-VALUES ('Felix78', 'felix78@gmail.com', '1', '1');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
+VALUES ('Andrea56', 'andrea56@gmail.com', 'User', '1');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE_ID, PROJECT_ID)
-VALUES ('Baldur00', 'baldur00@gmail.com', '1', '1');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
+VALUES ('Opmo34', 'opmo34@gmail.com', 'User', '1');
+
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
+VALUES ('Felix78', 'felix78@gmail.com', 'User', '1');
+
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
+VALUES ('Baldur00', 'baldur00@gmail.com', 'User', '1');
 
 INSERT INTO TICKET (TICKET_TITLE, PROJECT_ID)
 VALUES ('Ticket title', '1');

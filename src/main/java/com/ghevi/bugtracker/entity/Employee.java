@@ -21,8 +21,8 @@ public class Employee {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "role_id")
-    private int roleId;
+    @Column(name = "role")
+    private String role;
 
     @ManyToMany(fetch = FetchType.LAZY,
                 cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
