@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`employee` (
   `user_name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `role` VARCHAR(100) NOT NULL,
-  `project_id` BIGINT(20) NOT NULL,
   
   PRIMARY KEY (`id`)
   )
@@ -78,9 +77,6 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`project_employee`  (
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
 
-
-
-
 -- -----------------------------------------------------
 -- Add sample data
 -- -----------------------------------------------------
@@ -94,20 +90,20 @@ VALUES ('Web Browser', 'A complicated browser', 'In progress');
 INSERT INTO PROJECT (PROJECT_NAME, DESCRIPTION, STAGE)
 VALUES ('Music Player', 'A intermediate musica player', 'Not started');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
-VALUES ('Marco12', 'marco12@gmail.com', 'User', '1');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
+VALUES ('Marco12', 'marco12@gmail.com', 'User');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
-VALUES ('Andrea56', 'andrea56@gmail.com', 'User', '1');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
+VALUES ('Andrea56', 'andrea56@gmail.com', 'User');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
-VALUES ('Opmo34', 'opmo34@gmail.com', 'User', '1');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
+VALUES ('Opmo34', 'opmo34@gmail.com', 'User');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
-VALUES ('Felix78', 'felix78@gmail.com', 'User', '1');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
+VALUES ('Felix78', 'felix78@gmail.com', 'User');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE, PROJECT_ID)
-VALUES ('Baldur00', 'baldur00@gmail.com', 'User', '1');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
+VALUES ('Baldur00', 'baldur00@gmail.com', 'User');
 
 INSERT INTO TICKET (TICKET_TITLE, PROJECT_ID)
 VALUES ('Ticket title', '1');
