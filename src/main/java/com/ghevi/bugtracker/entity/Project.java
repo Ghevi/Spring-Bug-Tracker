@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,6 +22,8 @@ public class Project {
     private Long id;
 
     @Column(name = "project_name")
+    @NotNull
+    @NotEmpty
     private String projectName;
 
     @Column(name = "description")

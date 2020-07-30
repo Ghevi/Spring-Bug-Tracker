@@ -3,6 +3,9 @@ package com.ghevi.bugtracker.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import java.util.List;
 import java.util.Set;
@@ -17,13 +20,20 @@ public class Employee {
     @Column(name = "id")
     private Long id;
 
+    @NotNull
+    @NotEmpty
     @Column(name = "user_name")
     private String userName;
 
     @Column(name = "email")
+    @Email
+    @NotNull
+    @NotEmpty
     private String email;
 
     @Column(name = "role")
+    @NotNull
+    @NotEmpty
     private String role;
 
     @ManyToMany(fetch = FetchType.LAZY,
