@@ -32,6 +32,7 @@ public class Project {
     @Column(name = "stage")
     private String stage;
 
+
     @ManyToMany(fetch = FetchType.LAZY,
                 cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
