@@ -1,9 +1,8 @@
 package com.ghevi.bugtracker.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.ghevi.bugtracker.BCryptPasswordDeserializer;
+import com.ghevi.bugtracker.config.BCryptPasswordDeserializer;
 import lombok.Data;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -11,7 +10,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity

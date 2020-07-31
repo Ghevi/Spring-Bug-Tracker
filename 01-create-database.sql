@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`employee` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `role` VARCHAR(100) NOT NULL,
   
   PRIMARY KEY (`id`)
@@ -90,20 +91,20 @@ VALUES ('Web Browser', 'A complicated browser', 'In progress');
 INSERT INTO PROJECT (PROJECT_NAME, DESCRIPTION, STAGE)
 VALUES ('Music Player', 'A intermediate musica player', 'Not started');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
-VALUES ('Marco12', 'marco12@gmail.com', 'User');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, PASSWORD, ROLE)
+VALUES ('Marco12', 'marco12@gmail.com', 'temp-password', 'User');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
-VALUES ('Andrea56', 'andrea56@gmail.com', 'User');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, PASSWORD, ROLE)
+VALUES ('Andrea56', 'andrea56@gmail.com', 'temp-password', 'User');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
-VALUES ('Opmo34', 'opmo34@gmail.com', 'User');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, PASSWORD, ROLE)
+VALUES ('Opmo34', 'opmo34@gmail.com', 'temp-password', 'User');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
-VALUES ('Felix78', 'felix78@gmail.com', 'User');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, PASSWORD, ROLE)
+VALUES ('Felix78', 'felix78@gmail.com', 'temp-password', 'User');
 
-INSERT INTO EMPLOYEE (USER_NAME, EMAIL, ROLE)
-VALUES ('Baldur00', 'baldur00@gmail.com', 'User');
+INSERT INTO EMPLOYEE (USER_NAME, EMAIL, PASSWORD, ROLE)
+VALUES ('Baldur00', 'baldur00@gmail.com', 'temp-password', 'User');
 
 INSERT INTO TICKET (TICKET_TITLE, PROJECT_ID)
 VALUES ('Ticket title', '1');

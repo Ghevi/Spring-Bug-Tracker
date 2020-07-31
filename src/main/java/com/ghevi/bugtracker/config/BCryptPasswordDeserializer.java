@@ -1,4 +1,4 @@
-package com.ghevi.bugtracker;
+package com.ghevi.bugtracker.config;
 
 
 import com.fasterxml.jackson.core.JsonParser;
