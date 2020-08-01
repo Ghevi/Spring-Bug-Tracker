@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`ticket` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `ticket_title` VARCHAR(255) DEFAULT NULL,
   `ticket_description` VARCHAR(500) DEFAULT NULL,
-  `assigned_developer` VARCHAR(255) DEFAULT NULL,
   `submitter` VARCHAR(255) DEFAULT NULL,
   `project_id` BIGINT(20) NOT NULL,
   `ticket_priority` VARCHAR(255) DEFAULT NULL,
@@ -48,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`ticket` (
   `ticket_type` VARCHAR(255) DEFAULT NULL,
   `created` TIMESTAMP DEFAULT NULL,
   `updated` TIMESTAMP DEFAULT NULL,
+  `employee_id` BIGINT(20) NOT NULL,
   
 PRIMARY KEY (`id`)
 ) 
@@ -106,8 +106,8 @@ VALUES ('Felix78', 'felix78@gmail.com', 'temp-password', 'User');
 INSERT INTO EMPLOYEE (USER_NAME, EMAIL, PASSWORD, ROLE)
 VALUES ('Baldur00', 'baldur00@gmail.com', 'temp-password', 'User');
 
-INSERT INTO TICKET (TICKET_TITLE, PROJECT_ID)
-VALUES ('Ticket title', '1');
+INSERT INTO TICKET (TICKET_TITLE, PROJECT_ID, EMPLOYEE_ID)
+VALUES ('Ticket title', '1', '1');
 
 INSERT INTO TICKET_COMMENT (COMMENTER, MESSAGE, CREATED, TICKET_ID)
 VALUES ('BossyBoss', 'A very important comment', now(), '1');

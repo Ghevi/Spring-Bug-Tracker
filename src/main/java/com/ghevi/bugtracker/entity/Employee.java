@@ -34,7 +34,7 @@ public class Employee {
     private String email;
 
     @Column(name = "password", nullable = false, length = 60)
-    @Size(min=60, max = 60)
+    @Size(min=6, max = 100)
     @JsonDeserialize(using = BCryptPasswordDeserializer.class)
     private String password;
 
@@ -51,4 +51,9 @@ public class Employee {
             inverseJoinColumns=@JoinColumn(name="project_id")
     )
     private Set<Project> projects;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    private Set<Ticket> tickets;
+
+
 }

@@ -16,10 +16,6 @@ public class TicketComment {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "ticket_id", nullable = false)
-    private Ticket ticket;
-
     @Column(name = "commenter")
     private String commenter;
 
@@ -29,4 +25,9 @@ public class TicketComment {
     @Column(name = "created")
     @CreationTimestamp
     private Timestamp created;
+
+    @ManyToOne
+    @JoinColumn(name = "ticket_id", nullable = false)
+    private Ticket ticket;
+
 }

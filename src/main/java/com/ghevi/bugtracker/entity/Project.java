@@ -44,12 +44,4 @@ public class Project {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
     private Set<Ticket> tickets;
-
-    public void addEmployee(Employee employee) {
-        if(employees == null) {
-            employees = new HashSet<Employee>();
-        }
-        employees.add(employee);
-    }
-
 }
