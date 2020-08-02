@@ -49,7 +49,7 @@ public class Ticket {
     private Project project;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id", nullable = false )
+    @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ticket")

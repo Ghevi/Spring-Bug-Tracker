@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`project` (
   `description` VARCHAR(500) DEFAULT NULL,
   `stage` VARCHAR(255) DEFAULT NULL,
   
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `PROJECT_NAME_UNIQUE` (`project_name`)
 ) 
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
@@ -31,7 +32,9 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`employee` (
   `password` VARCHAR(100) NOT NULL,
   `role` VARCHAR(100) NOT NULL,
   
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `USERNAME_UNIQUE` (`user_name`),
+  UNIQUE KEY `EMAIL_UNIQUE` (`email`)
   )
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
@@ -48,8 +51,10 @@ CREATE TABLE IF NOT EXISTS `bugtracker`.`ticket` (
   `created` TIMESTAMP DEFAULT NULL,
   `updated` TIMESTAMP DEFAULT NULL,
   `employee_id` BIGINT(20) NOT NULL,
+  `ticket_comment_id` BIGINT(20) NOT NULL,
   
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`),
+UNIQUE KEY `TICKET_TITLE_UNIQUE` (`ticket_title`)
 ) 
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
@@ -106,8 +111,8 @@ VALUES ('Felix78', 'felix78@gmail.com', 'temp-password', 'User');
 INSERT INTO EMPLOYEE (USER_NAME, EMAIL, PASSWORD, ROLE)
 VALUES ('Baldur00', 'baldur00@gmail.com', 'temp-password', 'User');
 
-INSERT INTO TICKET (TICKET_TITLE, PROJECT_ID, EMPLOYEE_ID)
-VALUES ('Ticket title', '1', '1');
+INSERT INTO TICKET (TICKET_TITLE, PROJECT_ID, EMPLOYEE_ID, TICKET_COMMENT_ID)
+VALUES ('Ticket title', '1', '1', '1');
 
 INSERT INTO TICKET_COMMENT (COMMENTER, MESSAGE, CREATED, TICKET_ID)
 VALUES ('BossyBoss', 'A very important comment', now(), '1');

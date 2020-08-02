@@ -32,14 +32,9 @@ public class Project {
     @Column(name = "stage")
     private String stage;
 
-
-    @ManyToMany(fetch = FetchType.LAZY,
-                cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinTable(
-            name="project_employee",
-            joinColumns=@JoinColumn(name="project_id"),
-            inverseJoinColumns=@JoinColumn(name="employee_id")
-    )
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+            CascadeType.REFRESH })
+    @JoinTable(name = "project_employee", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "employee_id"))
     private Set<Employee> employees;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")

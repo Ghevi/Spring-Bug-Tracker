@@ -34,7 +34,7 @@ public class Employee {
     private String email;
 
     @Column(name = "password", nullable = false, length = 60)
-    @Size(min=6, max = 100)
+    @Size(min = 6, max = 100)
     @JsonDeserialize(using = BCryptPasswordDeserializer.class)
     private String password;
 
@@ -43,16 +43,15 @@ public class Employee {
     @NotEmpty
     private String role;
 
-    @ManyToMany(fetch = FetchType.LAZY,
-                cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinTable(
-            name="project_employee",
-            joinColumns=@JoinColumn(name="employee_id"),
-            inverseJoinColumns=@JoinColumn(name="project_id")
-    )
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+            CascadeType.REFRESH })
+    @JoinTable(name = "project_employee",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id"))
     private Set<Project> projects;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH},
+               mappedBy = "employee")
     private Set<Ticket> tickets;
 
 
